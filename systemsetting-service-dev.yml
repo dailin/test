@@ -1,0 +1,58 @@
+﻿eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:5111/eureka/
+server:
+  port: 5004
+  servlet:
+    path: /
+
+spring:
+  http:
+    multipart:
+      max-file-size: 100Mb 
+      max-request-size: 100mb
+  application:
+    name: systemsetting-service
+  datasource:
+    tomcat:
+        min-idle: 3
+        max-idle: 5
+        max-active: 5
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    url: jdbc:oracle:thin:@172.18.30.100:1521/orcl
+    username: CONSULTATION
+    password: CONSULTATION
+  redis:
+    host: localhost
+    port: 6379
+    database: 0
+    password: medical
+    timeout: 5000
+    jedis:
+      pool:
+        max-active: 8
+        max-wait: -1
+        max-idle: 8
+        min-idle: 0
+ 
+mybatis:
+  type-aliases-package: com.medical.systemsetting.domain
+  mapper-locations: classpath*:sqlmapper/*Mapper.xml
+
+static.basepath: E:/app/consultation/web
+upload.filepath: /upload-dir
+upload.maxFileSize: 100MB
+upload.maxRequestSize: 100MB
+
+spring.jackson.time-zone: GMT+8
+
+#配置指导员jmesaage
+jmessage.insappkey: 1d985b5b4dba43ab1b87b0d2
+jmessage.inssecret: 7028e97f382aa6b2544cb676
+
+#配置会员jmesaage
+jmessage.userappkey: 6c860132d5bdd50edfc1c209
+jmessage.usersecret: 2c9f9ca104c12436a1626ef2
+
+
