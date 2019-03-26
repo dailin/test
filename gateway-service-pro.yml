@@ -1,0 +1,69 @@
+spring:
+  servlet:
+    multipart:
+      max-file-size: 100Mb 
+      max-request-size: 100Mb
+  application:
+    name: gateway-service
+  datasource:
+    tomcat:
+       min-idle: 3
+       max-idle: 5
+       max-active: 5
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    url: jdbc:oracle:thin:@localhost:1521/orcl
+    username: CONSULTATION
+    password: CONSULTATION
+  redis:
+    host: localhost
+    port: 6379
+    database: 0
+    password: medical
+    timeout: 5000
+    jedis:
+      pool:
+        max-active: 8
+        max-wait: -1
+        max-idle: 8
+        min-idle: 0
+  host:
+    socket-timeout-millis: 60000
+    connect-timeout-millis: 10000
+
+mybatis:
+  mapper-locations: classpath*:sqlmapper/*Mapper.xml
+  type-aliases-package: com.medical.gateway.domain
+ 
+server:
+  port: 5008
+  max-http-header-size: 10000000
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:5111/eureka/
+      
+zuul:
+  sensitive-headers:
+  routes:
+    systemservice:
+      path: /systemsetting-service/**
+      service-id: systemsetting-service
+    telemedicine-service:
+      path: /telemedicine-service/**
+      service-id: telemedicine-service
+
+ribbon:
+  ReadTimeout: 60000
+  ConnectTimeout: 60000
+
+hystrix:  
+  command:  
+    default:  
+      execution:  
+        isolation:  
+          thread:  
+            timeoutInMilliseconds: 60000
+
+## JsonFormat时区问题
+spring.jackson.time-zone: GMT+8
