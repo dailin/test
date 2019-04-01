@@ -11,8 +11,8 @@ spring:
        max-idle: 5
        max-active: 5
     driver-class-name: oracle.jdbc.driver.OracleDriver
-    url: jdbc:oracle:thin:@192.168.43.173:1521/orcl
-    username: CONSULTATION
+    url: jdbc:oracle:thin:@192.168.1.16:1521/orcl
+    username: c##CONSULTATION
     password: CONSULTATION
   redis:
     host: localhost
