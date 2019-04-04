@@ -15,7 +15,7 @@ spring:
     username: c##CONSULTATION
     password: CONSULTATION
   redis:
-    host: localhost
+    host: 192.168.1.35
     port: 6379
     database: 0
 #    password: medical
@@ -41,7 +41,7 @@ server:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:5111/eureka/
+      defaultZone: http://192.168.1.35:5111/eureka/
       
 zuul:
   sensitive-headers:
